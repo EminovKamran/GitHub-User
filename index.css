@@ -1,14 +1,17 @@
 .wrapper {
-    max-width: 400px;
+    max-width: 700px;
+    height: 100vh;
+    background-color: #C4C4C4;
     margin: 0 auto;
+    padding: 77px;
 }
 
 .search-input {
     height: 50px;
-    width: 380px;
-    font-size: 30px;
-    border-radius: 10px;
-    padding: 10px;
+    width: 680px;
+    font-size: 48px;
+    font-family: "Roboto Light", sans-serif;
+    padding: 9px;
 }
 ul {
    padding: 0;
@@ -28,11 +31,15 @@ li {
     background: aliceblue;
 }
 .search-list__item {
+    font-family: "Roboto Light", sans-serif;
     font-size: 30px;
     padding: 10px;
     cursor: pointer;
+    border: 2px solid black;
+    background-color: #E3E3E3;
 }
 .repo-list__item {
+    font-family: "Roboto Light", sans-serif;
     font-size: 30px;
     display: flex;
     align-items: center;
@@ -40,14 +47,22 @@ li {
     border: 1px solid black;
     border-radius: 10px;
     margin-bottom: 10px;
-    padding: 10px;
+    background-color: #E27BEB;
+    padding: 20px;
+}
+
+.repo-list__item > ul > li{
+    font-size: 40px;
+    font-family: "Roboto Light", sans-serif;
 }
 
 .search-list__item:hover {
-    color: blue;
+    background-color: #65CDF9;
 }
 
 .repo-list__close {
+    font-family: "Roboto Light", sans-serif;
     color: red;
     cursor: pointer;
+    font-size: 80px;
 }
