@@ -42,9 +42,9 @@ function mainHandler(response) {
             'afterbegin',
             `<li class="repo-list__item">
                     <ul>
-                      <li>${response.items[currentID].name}</li>
-                      <li>${response.items[currentID].owner.login}</li>
-                      <li>${response.items[currentID].stargazers_count}</li>
+                      <li>Name: ${response.items[currentID].name}</li>
+                      <li>Owner: ${response.items[currentID].owner.login}</li>
+                      <li>Stars: ${response.items[currentID].stargazers_count}</li>
                     </ul>
                       <div class="repo-list__close" data-cross>X</div>
                    </li>`
