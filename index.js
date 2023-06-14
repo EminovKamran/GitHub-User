@@ -8,11 +8,12 @@ function onChange(event) {
     let url = new URL('https://api.github.com/search/repositories');
     url.searchParams.set('q', event.target.value);
     if (searchInput.value.trim().length !== 0) {
-        console.log(searchInput.value.length)
         fetch(url)
             .then((response) => response.json())
             .then((response) => autoCompleter(response))
             .catch((err) => console.log(err))
+    } else {
+        searchList.innerHTML = ''
     }
 }
 
