@@ -7,11 +7,13 @@ let boundEventHandler;
 function onChange(event) {
     let url = new URL('https://api.github.com/search/repositories');
     url.searchParams.set('q', event.target.value);
-
-    fetch(url)
-        .then((response) => response.json())
-        .then((response) => autoCompleter(response))
-        .catch((err) => console.log(err))
+    if (searchInput.value !== ' ' && searchInput.value === 0) {
+        console.log(searchInput.value.length)
+        fetch(url)
+            .then((response) => response.json())
+            .then((response) => autoCompleter(response))
+            .catch((err) => console.log(err))
+    }
 }
 
 function autoCompleter(response) {
@@ -24,13 +26,10 @@ function autoCompleter(response) {
         searchListItem.setAttribute('data-id', `${i}`);
         fragment.appendChild(searchListItem);
     }
+
     searchList.appendChild(fragment);
 
-    // if (boundEventHandler) {
-    //     searchList.removeEventListener('click', boundEventHandler);
-    // }
     boundEventHandler = mainHandler(response);
-    // searchList.addEventListener('click', boundEventHandler);
     searchList.onclick = boundEventHandler;
 }
 
@@ -49,11 +48,6 @@ function mainHandler(response) {
                       <div class="repo-list__close" data-cross>X</div>
                    </li>`
         )
-        // const repoListClose = document.querySelector('.repo-list__close');
-        // const repoListItem = document.querySelector('.repo-list__item');
-        // repoListClose.addEventListener('click', (e) => {
-        //     repoListItem.remove()
-        // })
         searchInput.value = '';
         searchList.innerHTML = '';
     }
